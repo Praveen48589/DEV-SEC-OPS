@@ -1,0 +1,43 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: mongodb://admin:pass123@mongodb:27017/mydatabase?authSource=admin
+    networks:
+      - my-network
+
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass123
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+volumes:
+  mongo-data:
+
+networks:
+  my-network:
+    driver: bridge
