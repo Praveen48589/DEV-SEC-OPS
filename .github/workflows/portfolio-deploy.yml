@@ -17,9 +17,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4  # actions/checkout@v4 copies your GitHub repository into that machine called runner like ubuntu-latest !!
+      
       - name: Setup up github page
         uses: actions/configure-pages@v4  # GitHub Pages is a free hosting service by GitHub that lets you host websites directly from a GitHub repository.
+      
       - name: Upload static files
         uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+      
       - name: Deploy to github pages
         uses: actions/deploy-pages@v4
