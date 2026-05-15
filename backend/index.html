@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Praveen Tomar | DevOps Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(12px);
+    background:rgba(15,23,42,0.7);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00d9ff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00d9ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 8%;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h3{
+    font-size:28px;
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#94a3b8;
+    max-width:600px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 35px;
+    background:#00d9ff;
+    color:#0f172a;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #00d9ff;
+}
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.circle{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00d9ff,#0077ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:120px;
+    font-weight:bold;
+    box-shadow:0 0 50px rgba(0,217,255,0.5);
+}
+
+/* SECTION */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    font-size:45px;
+    margin-bottom:50px;
+    text-align:center;
+}
+
+.section-title span{
+    color:#00d9ff;
+}
+
+/* ABOUT */
+
+.about-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.about-box{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.about-box:hover{
+    transform:translateY(-10px);
+}
+
+.about-box p{
+    line-height:1.8;
+    color:#94a3b8;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.skill{
+    background:#111827;
+    padding:25px;
+    border-radius:20px;
+}
+
+.skill h3{
+    margin-bottom:15px;
+}
+
+.bar{
+    height:10px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(to right,#00d9ff,#0077ff);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#111827;
+    padding:35px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(0,217,255,0.2);
+}
+
+.project-card h3{
+    margin-bottom:15px;
+    color:#00d9ff;
+}
+
+.project-card p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+}
+
+.service h3{
+    margin:20px 0;
+    color:#00d9ff;
+}
+
+.service p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:#111827;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.contact-box p{
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.contact-links a{
+    text-decoration:none;
+    color:white;
+    background:#1e293b;
+    padding:12px 25px;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.contact-links a:hover{
+    background:#00d9ff;
+    color:#0f172a;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero{
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+.about-content{
+    grid-template-columns:1fr;
+}
+
+.circle{
+    width:250px;
+    height:250px;
+    font-size:80px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">Praveen</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h3>DevOps Engineer & Cloud Enthusiast</h3>
+
+        <h1>
+            Building Modern <br>
+            Cloud Infrastructure
+        </h1>
+
+        <p>
+            Passionate DevOps Engineer focused on AWS, Docker,
+            Linux, CI/CD automation, GitHub Actions,
+            and scalable cloud deployments.
+        </p>
+
+        <a href="#projects" class="btn">
+            View Projects
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="circle">PT</div>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+    <div class="about-content">
+
+        <div class="about-box">
+
+            <p>
+                I am a DevOps and Cloud Engineer passionate
+                about automation, cloud infrastructure,
+                containerization, and scalable deployments.
+            </p>
+
+        </div>
+
+        <div class="about-box">
+
+            <p>
+                I work with AWS, Docker, Linux,
+                GitHub Actions, Shell Scripting,
+                and CI/CD pipelines to build
+                modern cloud solutions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="section-title">
+        My <span>Skills</span>
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>AWS Cloud</h3>
+            <div class="bar">
+                <div class="fill" style="width:90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>Docker</h3>
+            <div class="bar">
+                <div class="fill" style="width:92%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>Linux</h3>
+            <div class="bar">
+                <div class="fill" style="width:88%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>GitHub Actions</h3>
+            <div class="bar">
+                <div class="fill" style="width:85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>Shell Scripting</h3>
+            <div class="bar">
+                <div class="fill" style="width:80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>CI/CD Pipelines</h3>
+            <div class="bar">
+                <div class="fill" style="width:84%"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+        My <span>Projects</span>
+    </h2>
+
+    <div class="projects">
+
+        <div class="project-card">
+
+            <h3>AWS Portfolio Deployment</h3>
+
+            <p>
+                Deployed portfolio website using GitHub Actions
+                and GitHub Pages with automated CI/CD workflow.
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Dockerized Node.js Application</h3>
+
+            <p>
+                Containerized Node.js application using Docker
+                and deployed on AWS EC2.
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>CI/CD Automation Pipeline</h3>
+
+            <p>
+                Automated application deployment using
+                GitHub Actions and Docker workflows.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <h2 class="section-title">
+        My <span>Services</span>
+    </h2>
+
+    <div class="services">
+
+        <div class="service">
+
+            <h3>Cloud Deployment</h3>
+
+            <p>
+                Deploy scalable applications on AWS cloud.
+            </p>
+
+        </div>
+
+        <div class="service">
+
+            <h3>Docker Containerization</h3>
+
+            <p>
+                Build and manage Docker containers efficiently.
+            </p>
+
+        </div>
+
+        <div class="service">
+
+            <h3>CI/CD Automation</h3>
+
+            <p>
+                Automate deployments using GitHub Actions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2 class="section-title">
+        Contact <span>Me</span>
+    </h2>
+
+    <div class="contact-box">
+
+        <p>
+            Let's build scalable cloud and DevOps projects together.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:yourmail@gmail.com">
+                Email
+            </a>
+
+            <a href="https://github.com/yourgithub">
+                GitHub
+            </a>
+
+            <a href="https://linkedin.com">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Praveen Tomar | DevOps Engineer
+</footer>
+
+</body>
+</html>
