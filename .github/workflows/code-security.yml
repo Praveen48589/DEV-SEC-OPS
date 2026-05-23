@@ -10,7 +10,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                node-version: ["25","26"]
+                node-version: ["24","26"]
 
         steps:
           - name: Checkout Code
@@ -23,9 +23,6 @@ jobs:
 
           - name: Install dependencies
             run: npm install
-
-          - name: Install Biome  # for linting
-            run: npm install --save-dev @biomejs/biome
 
           - name: Run Biome
             run: npx @biomejs/biome check .
