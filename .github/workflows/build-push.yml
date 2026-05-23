@@ -1,0 +1,40 @@
+name: docker build
+
+on:
+    workflow_call:
+
+
+jobs:
+    build-push:
+        env:
+            DOCKERHUB_USRNAME: ${{vars.DOCKERHUB_USERNAME}}
+            DOCKER_TAG: ${{github.sha}}
+        runs-on: ubuntu-latest
+        steps:
+
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Login To Dockerhub
+              uses: docker/login-action@v4
+              with:
+                username: ${{vars.DOCKERHUB_USERNAME}}
+                password: ${{secrets.DOCKERHUB_TOKEN}}
+
+            - name: Docker build && push for frontend
+              uses: docker/build-push-action@v6
+              with:
+                context: ./frontend
+                push: true
+                tags: ${{vars.DOCKERHUB_USERNAME}}/frontend:${{github.sha}}
+
+            - name: Docker build && push for backend
+              uses: docker/build-push-action@v6
+              with:
+                context: ./backend
+                push: true
+                tags: ${{vars.DOCKERHUB_USERNAME}}/backend:${{github.sha}}
+
+           
+
+
