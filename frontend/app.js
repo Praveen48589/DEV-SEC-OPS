@@ -4,6 +4,7 @@ let activeCategory = "All";
 let profile = JSON.parse(localStorage.getItem("biterushProfile") || "null");
 let pendingAuthPhoto = "";
 let buyNowDish = null;
+let toastTimeout;
 
 const rupee = (value) => `₹${value.toLocaleString("en-IN")}`;
 const menuGrid = document.getElementById("menuGrid");
@@ -56,6 +57,17 @@ async function api(path, options = {}) {
 	const data = await response.json();
 	if (!response.ok) throw new Error(data.error || "Request failed");
 	return data;
+}
+
+function showToast(message) {
+	if (!toast) return;
+
+	toast.textContent = message;
+	toast.classList.add("show");
+	window.clearTimeout(toastTimeout);
+	toastTimeout = window.setTimeout(() => {
+		toast.classList.remove("show");
+	}, 2400);
 }
 
 function saveProfile(nextProfile) {
@@ -626,12 +638,10 @@ document.querySelectorAll(".service-strip button").forEach((button) => {
 	button.addEventListener("click", () => {
 		if (!button.dataset.target) return;
 
-		document
-			.getElementById(button.dataset.target)
-			.scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-			});
+		document.getElementById(button.dataset.target).scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
 	});
 });
 
